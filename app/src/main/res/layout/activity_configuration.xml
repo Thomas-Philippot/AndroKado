@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfigurationActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left_column"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right_column"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_first_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_second_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_left_column"
+        app:layout_constraintRight_toRightOf="@id/guideline_left_column"
+        app:layout_constraintTop_toTopOf="@id/guideline_first_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_first_row"
+        android:text="@string/conf_sort"
+        />
+
+    <Switch
+        android:id="@+id/conf_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_right_column"
+        app:layout_constraintRight_toRightOf="@id/guideline_right_column"
+        app:layout_constraintTop_toTopOf="@id/guideline_first_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_first_row"
+        android:onClick="onToggleSorting"
+        />
+
+    <TextView
+        android:id="@+id/price_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_left_column"
+        app:layout_constraintRight_toRightOf="@id/guideline_left_column"
+        app:layout_constraintTop_toTopOf="@id/guideline_second_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_second_row"
+        android:text="@string/conf_price"
+        />
+
+    <EditText
+        android:id="@+id/price_value"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_right_column"
+        app:layout_constraintRight_toRightOf="@id/guideline_right_column"
+        app:layout_constraintTop_toTopOf="@id/guideline_second_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_second_row"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="20dp">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline50v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50121653" />
+    <TextView
+        android:id="@+id/nom"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pain au chocolat"
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        android:paddingBottom="10dp"
+        />
+    <TextView
+        android:id="@+id/prix"
+        app:layout_constraintTop_toBottomOf="@id/nom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="1,00 €"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        />
+    <RatingBar
+        android:id="@+id/degreEnvie"
+        app:layout_constraintTop_toBottomOf="@id/nom"
+        app:layout_constraintBottom_toTopOf="@id/description"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:numStars="4"
+        android:stepSize="0.1"
+        android:rating="4"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/description"
+        app:layout_constraintTop_toBottomOf="@id/prix"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Une viennoiserie au beurre et au chocolat"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        />
+    <ImageButton
+        android:id="@+id/btnWorld"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline50v"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="@string/app_name"
+        android:textColorHint="@color/black"
+        android:src="@mipmap/ic_planet_round"
+        android:onClick="onClickUrl"
+        />
+    <ToggleButton
+        android:id="@+id/btnAchete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline50v"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textOn="Acheté"
+        android:textOff="Non acheté"
+        android:textColorHint="@color/black"
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>
