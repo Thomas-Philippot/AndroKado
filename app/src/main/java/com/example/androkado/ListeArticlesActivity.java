@@ -13,19 +13,23 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.androkado.adapter.AdapterArticle;
 import com.example.androkado.model.Article;
+import com.example.androkado.view_model.ArticleViewModel;
+import com.facebook.stetho.Stetho;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.List;
 
 public class ListeArticlesActivity extends AppCompatActivity {
 
-    ArrayList<Article> articles = new ArrayList<>();
+    List<Article> articleArrayList = new ArrayList<>();
     private SharedPreferences preferences;
+    private ArticleViewModel articleViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +37,8 @@ public class ListeArticlesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_liste_articles);
         this.preferences = this.getSharedPreferences("PREFS_FILE", Context.MODE_PRIVATE);
 
-        this.articles.add(new Article("nomAAA", "descAAA", 1.25, 1.5, "urlAAA", true));
-        this.articles.add(new Article("nomBBB", "descBBB", 3.25, 2.4, "urlBBB", false));
-        this.articles.add(new Article("nomCCC", "descCCC", 4.58, 3.5, "urlCCC", false));
-        this.articles.add(new Article("nomDDD", "descDDD", 3.35, 3.8, "urlDDD", true));
-        this.articles.add(new Article("nomEEE", "descEEE", 4.96, 4, "urlEEE", true));
+        this.articleViewModel = ViewModelProviders.of(this).get(ArticleViewModel.class);
+        Stetho.initializeWithDefaults(this);
     }
 
     @Override
@@ -45,15 +46,22 @@ public class ListeArticlesActivity extends AppCompatActivity {
         super.onResume();
 
         this.sortArticles();
-        AdapterArticle adapterArticle = new AdapterArticle(this, R.layout.row_style_article, this.articles);
 
-        final ListView listeArticles = this.findViewById(R.id.lvArticles);
-        listeArticles.setAdapter(adapterArticle);
+        final ListView listeArticles = findViewById(R.id.lvArticles);
+
+        this.articleViewModel.findAll().observe(this, new Observer<List<Article>>() {
+            @Override
+            public void onChanged(List<Article> articles) {
+                articleArrayList = articles;
+                AdapterArticle adapterArticle = new AdapterArticle(ListeArticlesActivity.this, R.layout.row_style_article, articles);
+                listeArticles.setAdapter(adapterArticle);
+            }
+        });
 
         listeArticles.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Article articleClicked = articles.get(position);
+                Article articleClicked = articleArrayList.get(position);
 
                 Intent intent = new Intent(ListeArticlesActivity.this, MainActivity.class);
                 intent.putExtra("article", articleClicked);
@@ -67,9 +75,9 @@ public class ListeArticlesActivity extends AppCompatActivity {
 
         if (preferences.contains(SORT)) {
             if (preferences.getBoolean(SORT, false)) {
-                Collections.sort(articles, Article.priceComparator);
+                Collections.sort(articleArrayList, Article.priceComparator);
             } else {
-                Collections.sort(articles, Article.nameComparator);
+                Collections.sort(articleArrayList, Article.nameComparator);
             }
         }
     }

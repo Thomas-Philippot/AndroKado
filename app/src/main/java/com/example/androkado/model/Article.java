@@ -61,6 +61,10 @@ public class Article implements Parcelable {
         return uid;
     }
 
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
     public String getNom() {
         return nom;
     }
