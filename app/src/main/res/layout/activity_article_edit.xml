@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="30dp"
+    tools:context=".ArticleEditActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_column_rating"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.58"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_first_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_second_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_third_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_fourth_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35"
+        />
+
+    <TextView
+        android:id="@+id/edit_article_title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/guideline_first_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_first_row"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/edit_article_nom"
+        />
+
+    <EditText
+        android:id="@+id/edit_article_title"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_first_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_first_row"
+        />
+
+    <TextView
+        android:id="@+id/edit_article_description_label"
+        android:text="@string/edit_article_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_second_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_second_row"
+        />
+
+    <EditText
+        android:id="@+id/edit_article_description"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_second_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_second_row"
+        />
+
+    <TextView
+        android:id="@+id/edit_article_price_label"
+        android:text="@string/edit_article_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_third_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_third_row"
+        android:paddingEnd="15dp"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/edit_article_price"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/guideline_third_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_third_row"
+        app:layout_constraintLeft_toRightOf="@id/edit_article_price_label"
+        android:layout_marginEnd="15dp"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/edit_article_rating_label"
+        android:text="@string/edit_article_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/guideline_third_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_third_row"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_column_rating"
+        android:paddingEnd="15dp"
+        tools:ignore="RtlSymmetry"
+        />
+
+    <RatingBar
+        android:id="@+id/edit_article_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/guideline_third_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_third_row"
+        app:layout_constraintLeft_toRightOf="@id/edit_article_rating_label"
+        android:numStars="4"
+        android:stepSize="1"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        android:isIndicator="false"
+        />
+
+    <TextView
+        android:id="@+id/edit_article_url_label"
+        android:text="@string/edit_article_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/guideline_fourth_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_fourth_row"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:paddingEnd="15dp"
+        tools:ignore="RtlSymmetry"
+        />
+
+    <EditText
+        android:id="@+id/edit_article_url"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/guideline_fourth_row"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_fourth_row"
+        app:layout_constraintLeft_toRightOf="@id/edit_article_price_label"
+        android:layout_marginEnd="15dp"
+        tools:ignore="RtlSymmetry" />
+
+    <Button
+        android:id="@+id/button_article_submit"
+        android:text="@string/edit_article_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="onClickSubmit"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

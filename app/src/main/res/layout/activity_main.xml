@@ -18,7 +18,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Pain au chocolat"
         android:textStyle="bold"
         android:textColorHint="@color/black"
         android:textSize="24sp"
@@ -30,7 +29,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="1,00 €"
         android:textColorHint="@color/black"
         android:textSize="16sp"
         />
@@ -42,8 +40,6 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:numStars="4"
-        android:stepSize="0.1"
-        android:rating="4"
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:textColorHint="@color/black"
         android:textSize="16sp"
@@ -54,7 +50,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Une viennoiserie au beurre et au chocolat"
         android:textColorHint="@color/black"
         android:textSize="16sp"
         />

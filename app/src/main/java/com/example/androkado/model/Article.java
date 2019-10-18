@@ -42,6 +42,16 @@ public class Article implements Parcelable {
         this.isAchete = isAchete;
     }
 
+    protected Article(Parcel in) {
+        uid = in.readInt();
+        nom = in.readString();
+        description = in.readString();
+        prix = in.readDouble();
+        degreEnvie = in.readDouble();
+        url = in.readString();
+        isAchete = in.readByte() != 0;
+    }
+
     public static final Creator<Article> CREATOR = new Creator<Article>() {
         @Override
         public Article createFromParcel(Parcel in) {
@@ -53,9 +63,6 @@ public class Article implements Parcelable {
             return new Article[size];
         }
     };
-
-    public Article(Parcel in) {
-    }
 
     public int getUid() {
         return uid;
@@ -113,16 +120,6 @@ public class Article implements Parcelable {
         isAchete = achete;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-    }
-
     /**
      * ==================
      * Comparators to sort the articles by properties
@@ -159,5 +156,21 @@ public class Article implements Parcelable {
                 ", url='" + url + '\'' +
                 ", isAchete=" + isAchete +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(uid);
+        dest.writeString(nom);
+        dest.writeString(description);
+        dest.writeDouble(prix);
+        dest.writeDouble(degreEnvie);
+        dest.writeString(url);
+        dest.writeByte((byte) (isAchete ? 1 : 0));
     }
 }

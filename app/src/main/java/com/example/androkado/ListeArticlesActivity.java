@@ -4,23 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.example.androkado.adapter.AdapterArticle;
 import com.example.androkado.model.Article;
 import com.example.androkado.view_model.ArticleViewModel;
 import com.facebook.stetho.Stetho;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -62,7 +59,6 @@ public class ListeArticlesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Article articleClicked = articleArrayList.get(position);
-
                 Intent intent = new Intent(ListeArticlesActivity.this, MainActivity.class);
                 intent.putExtra("article", articleClicked);
                 startActivity(intent);
@@ -90,14 +86,15 @@ public class ListeArticlesActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_add:
-                Toast.makeText(this, "add", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_configuration:
-                Intent intent = new Intent(this, ConfigurationActivity.class);
-                this.startActivity(intent);
+        if (item.getItemId() == R.id.action_configuration) {
+            Intent ConfigItent = new Intent(this, ConfigurationActivity.class);
+            this.startActivity(ConfigItent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onAddArticle(View view) {
+        Intent articleEditItent = new Intent(this, ArticleEditActivity.class);
+        this.startActivity(articleEditItent);
     }
 }

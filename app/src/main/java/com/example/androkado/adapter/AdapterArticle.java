@@ -34,12 +34,12 @@ public class AdapterArticle extends ArrayAdapter<Article> {
         }
 
         TextView tvNom = convertView.findViewById(R.id.nom);
-        RatingBar rbDegreEnvie = convertView.findViewById(R.id.degreEnvie);
+        TextView tvPrice = convertView.findViewById(R.id.price);
 
         Article articleToShow = getItem(position);
 
         tvNom.setText(articleToShow.getNom());
-        rbDegreEnvie.setRating((float) articleToShow.getDegreEnvie());
+        tvPrice.setText(articleToShow.getPrix() + "€");
 
         return convertView;
     }

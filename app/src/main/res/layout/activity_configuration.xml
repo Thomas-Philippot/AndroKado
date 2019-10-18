@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigurationActivity">
+    tools:context=".ConfigurationActivity"
+    android:paddingHorizontal="30dp"
+    >
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left_column"
@@ -41,8 +43,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="@id/guideline_left_column"
-        app:layout_constraintRight_toRightOf="@id/guideline_left_column"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline_first_row"
         app:layout_constraintBottom_toBottomOf="@id/guideline_first_row"
         android:text="@string/conf_sort"
@@ -52,8 +53,7 @@
         android:id="@+id/conf_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="@id/guideline_right_column"
-        app:layout_constraintRight_toRightOf="@id/guideline_right_column"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline_first_row"
         app:layout_constraintBottom_toBottomOf="@id/guideline_first_row"
         android:onClick="onToggleSorting"
@@ -63,8 +63,7 @@
         android:id="@+id/price_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="@id/guideline_left_column"
-        app:layout_constraintRight_toRightOf="@id/guideline_left_column"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline_second_row"
         app:layout_constraintBottom_toBottomOf="@id/guideline_second_row"
         android:text="@string/conf_price"
@@ -75,8 +74,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:inputType="number"
-        app:layout_constraintLeft_toLeftOf="@id/guideline_right_column"
-        app:layout_constraintRight_toRightOf="@id/guideline_right_column"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline_second_row"
         app:layout_constraintBottom_toBottomOf="@id/guideline_second_row"
         />

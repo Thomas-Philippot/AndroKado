@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 public class ConfigurationActivity extends AppCompatActivity {
 
-    private final String SORT = "sort";
-    private final String PRICE = "price";
+    public static final String SORT = "sort";
+    public static final String PRICE = "price";
     private SharedPreferences.Editor editor;
 
 
